@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kaustuv Pokharel – Creative Storyteller, Filmmaker, Designer, and Developer." />
+  <title>Kaustuv Pokharel</title>
+
+  <!-- =============================================
+       FONTS
+       Using DM Serif Display (editorial headings)
+       + Inter (clean body text)
+  ============================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- GSAP (animations) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Lenis (smooth scrolling) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       PAGE LOADER
+       Shows while page assets are loading.
+  ============================================= -->
+  <div id="loader" class="loader">
+    <div class="loader__inner">
+      <span class="loader__name">KP</span>
+      <div class="loader__bar">
+        <div class="loader__progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       CUSTOM CURSOR
+       Replaces the default mouse pointer.
+  ============================================= -->
+  <div id="cursor" class="cursor"></div>
+  <div id="cursor-follower" class="cursor-follower"></div>
+
+  <!-- =============================================
+       SCROLL PROGRESS BAR
+       Thin line at top of page showing scroll %.
+  ============================================= -->
+  <div id="scroll-progress" class="scroll-progress"></div>
+
+  <!-- =============================================
+       NAVIGATION
+  ============================================= -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo">KP</a>
+
+    <!-- Hamburger (mobile) -->
+    <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav__links" id="nav-links">
+      <a href="#about"   class="nav__link">About</a>
+      <a href="#skills"  class="nav__link">Skills</a>
+      <a href="#projects" class="nav__link">Work</a>
+      <a href="#films"   class="nav__link">Films</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =============================================
+         HERO SECTION
+    ============================================= -->
+    <section id="hero" class="hero section">
+
+      <!-- Animated background canvas -->
+      <canvas id="hero-canvas" class="hero__canvas"></canvas>
+
+      <!-- Grain texture overlay -->
+      <div class="grain-overlay"></div>
+
+      <div class="hero__content">
+        <!-- Main name – split into two lines for dramatic effect -->
+        <h1 class="hero__name">
+          <span class="hero__name-line" data-reveal>KAUSTUV</span>
+          <span class="hero__name-line hero__name-line--indent" data-reveal>POKHAREL</span>
+        </h1>
+
+        <!-- Rotating tagline words -->
+        <p class="hero__tagline" data-reveal>
+          &nbsp;·&nbsp;
+          <span class="hero__rotating-word" id="rotating-word">DESIGNING</span>
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="hero__buttons" data-reveal>
+          <a href="#projects" class="btn btn--primary magnetic">View Work</a>
+          <a href="#contact"  class="btn btn--ghost  magnetic">Let's Create Something</a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero__scroll-indicator" data-reveal>
+          <span class="hero__scroll-line"></span>
+          <span class="hero__scroll-text">Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         ABOUT SECTION
+    ============================================= -->
+    <section id="about" class="about section">
+      <div class="container">
+
+        <!-- Section label -->
+        <p class="section-label" data-reveal>01 — About</p>
+
+        <div class="about__grid">
+
+          <!-- Portrait placeholder -->
+          <div class="about__portrait" data-reveal>
+            <div class="about__portrait-frame">
+              <!-- Replace src with your actual portrait -->
+              <img
+                src="assets/images/portrait2.jpg"
+                alt="Portrait of Kaustuv Pokharel"
+                class="about__portrait-img"
+                loading="lazy"
+                onerror="this.style.display='none'; this.parentElement.classList.add('about__portrait-frame--placeholder')"
+              />
+              <div class="about__portrait-overlay"></div>
+            </div>
+            <!-- Decorative label beside portrait -->
+            <span class="about__portrait-label">Kathmandu, Nepal</span>
+          </div>
+
+          <!-- Text content -->
+          <div class="about__text">
+            <h2 class="about__heading" data-reveal>
+              Still
+              <em>figuring</em><br/>
+              it out.
+            </h2>
+
+            <p class="about__body" data-reveal>
+              <em>I'm Kaustuv</em>, a 16-year-old creative who lives at the intersection of films,
+              design, and code. I believe that every story deserves to be told with passion and creativity. 
+            </p>
+
+            <p class="about__body" data-reveal>
+              I've been passionate about films and stories since my childhood. That passion led me to <em>screenplay writing, filmmaking, and eventually to design and development.</em>
+            </p>
+
+            <p class="about__body" data-reveal>
+              I'm curious by nature and disciplined by practice. Whether I'm
+              framing a shot, designing a poster, or writing a line of
+              code, I bring the same obsessive attention to detail because the
+              small things are usually the only things people remember.
+            </p>
+
+            <!-- Inline stats -->
+            <div class="about__stats" data-reveal>
+              <div class="about__stat">
+                <span class="about__stat-number counter" data-target="2">2</span>
+                <span class="about__stat-label">Projects</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-number counter" data-target="1">1</span>
+                <span class="about__stat-label">Films</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-number counter" data-target="0">0</span>
+                <span class="about__stat-label">Awards</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SKILLS SECTION
+    ============================================= -->
+    <section id="skills" class="skills section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>02 — Skills</p>
+        <h2 class="section-heading" data-reveal>What I Do</h2>
+
+        <div class="skills__grid">
+
+          <!-- Each .skill-card is self-contained and easy to duplicate -->
+          <div class="skill-card" data-reveal>
+            <div class="skill-card__icon">🎬</div>
+            <h3 class="skill-card__title">Filmmaking</h3>
+            <p class="skill-card__body">
+              From pre-production to the final color grade, I approach every
+              film as a language. I direct, operate camera, and oversee post
+              with a storyteller's eye — always chasing the image that says
+              more than words can.
+            </p>
+          </div>
+
+          <div class="skill-card" data-reveal>
+            <div class="skill-card__icon">✍️</div>
+            <h3 class="skill-card__title">Screenplay Writing</h3>
+            <p class="skill-card__body">
+              Structure is freedom. I write scripts that respect the craft —
+              three-act architecture, authentic dialogue, characters who carry
+              contradiction. I've written shorts, features, and documentary
+              treatments across multiple genres.
+            </p>
+          </div>
+
+          <div class="skill-card" data-reveal>
+            <div class="skill-card__icon">🎨</div>
+            <h3 class="skill-card__title">Graphic Design</h3>
+            <p class="skill-card__body">
+              Design is problem-solving dressed beautifully. I create brand
+              identities, editorial layouts, poster art, and motion graphics
+              that feel considered rather than assembled — each element earning
+              its place on the canvas.
+            </p>
+          </div>
+
+          <div class="skill-card" data-reveal>
+            <div class="skill-card__icon">📷</div>
+            <h3 class="skill-card__title">Photography</h3>
+            <p class="skill-card__body">
+              I shoot documentary, portrait, and street. Photography taught me
+              to see light before looking for it — a discipline that has
+              quietly improved every other thing I do. The best photographs ask
+              a question they refuse to answer.
+            </p>
+          </div>
+
+          <div class="skill-card" data-reveal>
+            <div class="skill-card__icon">💻</div>
+            <h3 class="skill-card__title">Coding</h3>
+            <p class="skill-card__body">
+              I build clean, performant web experiences from scratch. Proficient
+              in HTML, CSS, JavaScript, and Python, I treat code as craft —
+              readable, maintainable, and honest about what it's doing and why.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FEATURED PROJECTS (Portfolio Gallery)
+    ============================================= -->
+    <section id="projects" class="projects section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>03 — Work</p>
+        <h2 class="section-heading" data-reveal>Featured Projects</h2>
+
+        <div class="projects__grid">
+
+          <!-- Project Card — duplicate this block to add more projects -->
+          <article class="project-card" data-reveal>
+            <div class="project-card__image-wrap">
+              <img src="assets/posters/ma-poster.jpg" alt="music video poster"
+                   class="project-card__image" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('project-card__image-wrap--placeholder')" />
+              <div class="project-card__overlay">
+                <span class="project-card__category">Cover Art · 2026</span>
+                <h3 class="project-card__title">Cover Art</h3>
+                <p class="project-card__desc">A stylish cover poster for the band Raato Jhanda.</p>
+                <a href="https://www.youtube.com/watch?v=-D1qW9lRBAA" target="_blank" class="btn btn--sm">View Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--tall" data-reveal>
+            <div class="project-card__image-wrap">
+              <img src="assets/posters/charkeko-dhunga-poster.jpg" alt="Charkeko Dhunga poster"
+                   class="project-card__image" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('project-card__image-wrap--placeholder')" />
+              <div class="project-card__overlay">
+                <span class="project-card__category">Film · 2026</span>
+                <h3 class="project-card__title">Charkeko Dhunga</h3>
+                <p class="project-card__desc">A short film exploring the contradiction between peace and violence.</p>
+                <a href="" class="btn btn--sm">Releasing Soon</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FILMS SECTION (Netflix-style)
+    ============================================= -->
+    <section id="films" class="films section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>04 — Direction and Story</p>
+        <h2 class="section-heading" data-reveal>Films</h2>
+
+        <div class="films__row" data-reveal>
+
+          <!-- Film Card — duplicate to add more films -->
+          <div class="film-card">
+            <div class="film-card__thumb-wrap">
+              <img src="assets/posters/charkeko-dhunga-poster.jpg" alt="Charkeko Dhunga thumbnail"
+                   class="film-card__thumb" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('film-card__thumb-wrap--placeholder')" />
+              <div class="film-card__info">
+                <span class="film-card__genre">Philosophical Drama · 10-12 min</span>
+                <h3 class="film-card__title">Charkeko Dhunga</h3>
+                <p class="film-card__role">Director · Writer</p>
+                <p class="film-card__synopsis">
+                  A short film exploring the moral conflict between peace and
+                  violence, told through a conversation between two friends and a hypothetical dilemma that challenges their ideology.
+                </p>
+                <span class="film-card__award">Post production is going on</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         PHOTOGRAPHY SECTION (Masonry + Lightbox)
+    ============================================= -->
+    <section id="photography" class="photography section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>05 — Photography</p>
+        <h2 class="section-heading" data-reveal>Through the Lens</h2>
+
+        <!-- Masonry grid -->
+        <div class="photo-grid" id="photo-grid" data-reveal>
+          <!-- Images — add more by duplicating these items -->
+          <!-- onerror creates a placeholder if image is missing -->
+          <div class="photo-item" data-index="0">
+            <img src="assets/photography/photo-6.jpg" alt="Photo 1" loading="lazy"
+                 onerror="this.src=''; this.parentElement.classList.add('photo-item--placeholder')" />
+          </div>
+          <div class="photo-item" data-index="2">
+            <img src="assets/photography/photo-3.jpg" alt="Photo 3" loading="lazy"
+                 onerror="this.src=''; this.parentElement.classList.add('photo-item--placeholder')" />
+          </div>
+          <div class="photo-item photo-item--wide" data-index="3">
+            <img src="assets/photography/photo-4.jpg" alt="Photo 4" loading="lazy"
+                 onerror="this.src=''; this.parentElement.classList.add('photo-item--placeholder')" />
+          </div>
+          <div class="photo-item" data-index="4">
+            <img src="assets/photography/photo-5.jpg" alt="Photo 5" loading="lazy"
+                 onerror="this.src=''; this.parentElement.classList.add('photo-item--placeholder')" />
+          </div>
+          <div class="photo-item photo-item--tall" data-index="5">
+            <img src="assets/photography/photo-1.jpg" alt="Photo 6" loading="lazy"
+                 onerror="this.src=''; this.parentElement.classList.add('photo-item--placeholder')" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lightbox overlay -->
+      <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox__close" id="lightbox-close" aria-label="Close">✕</button>
+        <button class="lightbox__prev"  id="lightbox-prev"  aria-label="Previous">‹</button>
+        <button class="lightbox__next"  id="lightbox-next"  aria-label="Next">›</button>
+        <div class="lightbox__image-wrap">
+          <img src="" alt="" class="lightbox__image" id="lightbox-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         GRAPHIC DESIGN SECTION (Art Gallery Style)
+    ============================================= -->
+    <section id="design" class="design section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>06 — Design</p>
+        <h2 class="section-heading" data-reveal>Graphic Design</h2>
+
+        <!-- Tab buttons to filter by category -->
+        <div class="design__tabs" data-reveal>
+          <button class="design__tab design__tab--active" data-filter="all">All</button>
+          <button class="design__tab" data-filter="poster">Posters</button>
+          <button class="design__tab" data-filter="brand">Branding</button>
+          <button class="design__tab" data-filter="social">Social Media</button>
+        </div>
+
+        <div class="design__grid" id="design-grid" data-reveal>
+
+          <!-- Design item — add data-category to filter it -->
+          <div class="design-item" data-category="poster" data-reveal>
+            <div class="design-item__image-wrap">
+              <img src="assets/posters/dev-is-a-slut-poster.jpg" alt="Poster design 1" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('design-item__image-wrap--placeholder')" />
+              <div class="design-item__label">Personal Project</div>
+            </div>
+          </div>
+
+          <div class="design-item" data-category="poster" data-reveal>
+            <div class="design-item__image-wrap">
+              <img src="assets/posters/little-miss-sunshine-poster.jpg" alt="Poster design 2" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('design-item__image-wrap--placeholder')" />
+              <div class="design-item__label">Personal Project</div>
+            </div>
+          </div>
+
+          <div class="design-item" data-category="poster" data-reveal>
+            <div class="design-item__image-wrap">
+              <img src="assets/posters/the-strokes-poster.jpg" alt="Poster design 3" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('design-item__image-wrap--placeholder')" />
+              <div class="design-item__label">Personal Project</div>
+            </div>
+          </div>
+
+          <div class="design-item" data-category="poster" data-reveal>
+            <div class="design-item__image-wrap">
+              <img src="assets/posters/charkeko-dhunga-poster.jpg" alt="Poster design 4" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('design-item__image-wrap--placeholder')" />
+              <div class="design-item__label">Film Poster</div>
+            </div>
+          </div>
+
+          <div class="design-item" data-category="poster" data-reveal>
+            <div class="design-item__image-wrap">
+              <img src="assets/posters/queen-poster.jpg" alt="Queen poster" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('design-item__image-wrap--placeholder')" />
+              <div class="design-item__label">Personal Project</div>
+            </div>
+          </div>
+
+          <div class="design-item" data-category="brand" data-reveal>
+            <div class="design-item__image-wrap">
+              <img src="assets/posters/ma-poster.jpg" alt="Branding project 2" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('design-item__image-wrap--placeholder')" />
+              <div class="design-item__label">Cover Art</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         CODING PROJECTS SECTION
+    ============================================= -->
+    <section id="code" class="code-section section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>07 — Code</p>
+        <h2 class="section-heading" data-reveal>Coding Projects</h2>
+
+        <div class="code-grid">
+
+          <!-- Code Card — duplicate to add more projects -->
+          <article class="code-card" data-reveal>
+            <div class="code-card__image-wrap">
+              <img src="assets/images/sentiment-analyzer.png" alt="Sentiment Analyzer app screenshot" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('code-card__image-wrap--placeholder')" />
+            </div>
+            <div class="code-card__body">
+              <div class="code-card__stack">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+                <span class="tag">Flask</span>
+              </div>
+              <h3 class="code-card__title">Sentiment Analyzer</h3>
+              <p class="code-card__desc">
+                A minimal yet powerful Sentiment Analysis Web App built using Flask and Hugging Face Transformers.
+                Just    type any text, hit "Analyze".
+              </p>
+              <div class="code-card__links">
+                <a href="https://github.com/leisure-calc/Sentiment-Analysis" target="_blank" class="btn btn--sm">GitHub</a>
+                <a href="https://github.com/leisure-calc/Sentiment-Analysis/blob/main/app.py" target="_blank" class="btn btn--sm btn--ghost">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="code-card" data-reveal>
+            <div class="code-card__image-wrap">
+              <img src="assets/images/tax calculator.png" alt="Tax Calculator app" loading="lazy"
+                   onerror="this.src=''; this.parentElement.classList.add('code-card__image-wrap--placeholder')" />
+            </div>
+            <div class="code-card__body">
+              <div class="code-card__stack">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Tkinter</span>
+              </div>
+              <h3 class="code-card__title">Tax Calculator</h3>
+              <p class="code-card__desc">
+                A simple tax calculator app built with Tkinter. Calculate the taxes with ease for government.
+                you can also export the results to a CSV file for further analysis. 
+              </p>
+              <div class="code-card__links">
+                <a href="https://github.com/leisure-calc/tax-manager-for-government/tree/main" target="_blank" class="btn btn--sm">GitHub</a>
+                <a href="https://github.com/leisure-calc/tax-manager-for-government/blob/main/tax%20calculator%20system/main.py" target="_blank" class="btn btn--sm btn--ghost">Code</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         CREATIVE PROCESS (Animated Timeline)
+    ============================================= -->
+    <section id="process" class="process section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>08 — Process</p>
+        <h2 class="section-heading" data-reveal>How I Work</h2>
+
+        <div class="timeline">
+
+          <!-- Timeline Step — duplicate to add more steps -->
+          <div class="timeline__step" data-reveal>
+            <div class="timeline__marker">01</div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Research</h3>
+              <p class="timeline__body">
+                Every idea starts with listening. I immerse myself in context,
+                watching, reading, talking to people; before forming any opinion
+                about what the work should be.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline__step" data-reveal>
+            <div class="timeline__marker">02</div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Ideation</h3>
+              <p class="timeline__body">
+                I fill notebooks before opening any software. Rough sketches,
+                structure diagrams, ideas on paper until they're
+                strong enough to survive being built.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline__step" data-reveal>
+            <div class="timeline__marker">03</div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Writing</h3>
+              <p class="timeline__body">
+                Whether it's a screenplay, a design brief, or a technical spec,
+                writing is where thinking becomes concrete. I write to understand,
+                not just to communicate.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline__step" data-reveal>
+            <div class="timeline__marker">04</div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Production</h3>
+              <p class="timeline__body">
+                When the concept is solid, execution becomes flawless. I'm
+                precise on set and precise in code because the best work
+                comes from properly planned systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline__step" data-reveal>
+            <div class="timeline__marker">05</div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Editing</h3>
+              <p class="timeline__body">
+                The edit is where everything earns its place. I cut ruthlessly,
+                refine obsessively, and only call something finished when removing
+                anything else would make it worse.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline__step" data-reveal>
+            <div class="timeline__marker">06</div>
+            <div class="timeline__content">
+              <h3 class="timeline__title">Delivery</h3>
+              <p class="timeline__body">
+                I believe in releasing work into the world and
+                letting it breathe then returning with fresh eyes to make it
+                even better.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  <!-- =============================================
+     TOOLBOX (Floating Logos)
+============================================= -->
+<section id="toolbox" class="toolbox section">
+  <div class="container">
+
+    <p class="section-label" data-reveal>09 — Toolbox</p>
+    <h2 class="section-heading" data-reveal>Tools I Use</h2>
+
+    <div class="toolbox__grid toolbox__grid--magnetic" data-reveal id="toolbox-grid">
+
+      <div class="tool-item floating" style="animation-delay: 0s">
+        <img src="assets/icons/photoshop.png" alt="Photoshop" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 0.2s">
+        <img src="assets/icons/illustrator.png" alt="Illustrator" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 0.4s">
+        <img src="assets/icons/davinci.png" alt="DaVinci Resolve" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 0.6s">
+        <img src="assets/icons/affinity.png" alt="Affinity Designer" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 0.8s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 1.0s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 1.2s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 1.4s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 1.6s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 1.8s">
+        <img src="assets/icons/canva.png" alt="Canva" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 2.0s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 2.2s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+      </div>
+      <div class="tool-item floating" style="animation-delay: 2.4s">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ 
+
+    <!-- =============================================
+         FUN FACTS (Animated Counters)
+    ============================================= -->
+    <section id="facts" class="facts section">
+      <div class="container">
+
+        <p class="section-label" data-reveal>10 — By the Numbers</p>
+
+        <div class="facts__grid" data-reveal>
+
+          <!-- Fact item — change data-target to update the number -->
+          <div class="fact-item">
+            <span class="fact-item__number counter" data-target="127">0</span>
+            <span class="fact-item__unit">tabs</span>
+            <span class="fact-item__label">Browser Tabs Open</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__number counter" data-target="2">0</span>
+            <span class="fact-item__unit">hours</span>
+            <span class="fact-item__label">Time Spent debugging on a single semicolon</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__number counter" data-target="2">0</span>
+            <span class="fact-item__unit"></span>
+            <span class="fact-item__label">Films Shot</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__number counter" data-target="0">0</span>
+            <span class="fact-item__unit"></span>
+            <span class="fact-item__label">Oscars(Yet.)</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__number">Ctrl+Z</span>
+            <span class="fact-item__label">Most used Shortcut</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-item__number counter" data-target="4">0</span>
+            <span class="fact-item__unit">hours</span>
+            <span class="fact-item__label">Time Spent Choosing Fonts</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         CONTACT SECTION
+    ============================================= -->
+    <section id="contact" class="contact section">
+      <div class="grain-overlay"></div>
+
+      <div class="container">
+
+        <p class="section-label section-label--light" data-reveal>11 — Contact</p>
+
+        <h2 class="contact__heading" data-reveal>
+          Let's make<br/>
+          <em>something</em><br/>
+          together.
+        </h2>
+
+        <!-- Contact form — powered by Formspree. Replace ACTION_URL below. -->
+        <!-- Sign up at https://formspree.io and paste your endpoint here. -->
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/xykqpwyw"
+          method="POST"
+          data-reveal
+        >
+          <div class="contact-form__field">
+            <label for="name" class="contact-form__label">Your name</label>
+            <input type="text" id="name" name="name" class="contact-form__input" required placeholder="Full Name" />
+          </div>
+
+          <div class="contact-form__field">
+            <label for="email" class="contact-form__label">Your email</label>
+            <input type="email" id="email" name="email" class="contact-form__input" required placeholder="you@example.com" />
+          </div>
+
+          <div class="contact-form__field">
+            <label for="message" class="contact-form__label">Message</label>
+            <textarea id="message" name="message" class="contact-form__textarea" rows="5" required placeholder="Tell me about your project..."></textarea>
+          </div>
+
+          <!-- Submit button with animation state -->
+          <button type="submit" class="btn btn--primary btn--large magnetic" id="submit-btn">
+            <span class="submit-btn__text">Send Message</span>
+            <span class="submit-btn__sending" hidden>Sending…</span>
+            <span class="submit-btn__sent" hidden>Sent ✓</span>
+          </button>
+        </form>
+
+        <!-- Social links -->
+        <div class="contact__socials" data-reveal>
+          <a href="mailto:kaustuvpokharel14@gmail.com" class="contact__social-link">Email</a>
+          <a href="https://instagram.com/kaustuvbarelydesigns" target="_blank" rel="noopener" class="contact__social-link">Instagram</a>
+          <a href="https://www.linkedin.com/in/kaustuv-pokharel-655a54343/" target="_blank" rel="noopener" class="contact__social-link">LinkedIn</a>
+          <a href="https://github.com/leisure-calc"   target="_blank" rel="noopener" class="contact__social-link">GitHub</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <!-- Animated signature text -->
+      <p class="footer__signature" id="footer-signature">Kaustuv Pokharel</p>
+      <p class="footer__copy">
+        © <span id="footer-year"></span> · Roll the credits now!!<br> · Kathmandu, Nepal
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main script (loaded last so the DOM is ready) -->
+  <script src="script.js"></script>
+
+</body>
+</html>
